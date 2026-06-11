@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <ul id="names">
+            <li>John</li>
+            <li>Steve</li>
+            <li>Mary</li>
+        </ul>
+        <script>
+            const list = document.getElementById("names");
+
+            console.log("list", list);
+
+            const names = list.children;
+            console.log("names", names);
+
+            for (const name of names) {
+                console.log(name.textContent);
+            }
+        </script>
+    </body>
+</html>

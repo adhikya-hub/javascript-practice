@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Counter</h1>
+        <h2 id="countVal">0</h2>
+        <button id="inc">+</button>
+        <button id="dec">-</button>
+
+        <script>
+            let val = document.getElementById("countVal");
+            let incBtn = document.getElementById("inc");
+            let decBtn = document.getElementById("dec");
+
+            incBtn.addEventListener("click", () => {
+                val.textContent = Number(val.textContent) + 1;
+            });
+            decBtn.addEventListener("click", () => {
+                val.textContent = Number(val.textContent) - 1;
+            });
+        </script>
+    </body>
+</html>

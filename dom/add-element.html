@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+        <title>doc</title>
+    </head>
+    <body>
+        <ul id="names">
+            <li>John</li>
+            <li>Mary</li>
+            <li>Dora</li>
+            <!-- comment -->
+            <li>Donny</li>
+        </ul>
+        <div id="box">
+            Hello
+            <span style="display: none">Hidden</span>
+            World
+        </div>
+        <script>
+            let parentElement = document.getElementById("names");
+            appendToParent(parentElement, "li", "Newly added");
+
+            function appendToParent(parent, ele, content) {
+                const element = document.createElement(ele);
+                element.append(content);
+                //element.textContent = content;
+                parent.append(element);
+            }
+            let box = document.getElementById("box");
+            console.log(box.innerText);
+            console.log(box.textContent);
+        </script>
+    </body>
+</html>

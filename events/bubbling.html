@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div
+            id="grandParent"
+            style="
+                color: white;
+                background-color: green;
+                width: 400px;
+                height: 200px;
+            "
+        >
+            <div
+                id="parent"
+                style="
+                    color: white;
+                    background-color: blue;
+                    width: 200px;
+                    height: 100px;
+                "
+            >
+                <div>
+                    <button id="child">Child</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const parent = document.getElementById("parent");
+            parent.addEventListener("click", (e) => {
+                console.log("parent clicked");
+                console.log(e);
+                e.target.style.backgroundColor = "yellow";
+            });
+            const gp = document.getElementById("grandParent");
+            gp.addEventListener("click", () => {
+                console.log("gp clicked");
+            });
+            const c = document.getElementById("child");
+            c.addEventListener("click", () => {
+                console.log("child clicked");
+            });
+        </script>
+    </body>
+</html>

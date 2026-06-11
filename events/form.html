@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Practice Form</title>
+    </head>
+    <body>
+        <h1>User Registration</h1>
+
+        <form id="userForm">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required />
+            </div>
+
+            <br />
+
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+
+            <br />
+
+            <div>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="1" max="120" />
+            </div>
+
+            <br />
+
+            <div>
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" />
+            </div>
+
+            <br />
+
+            <div>
+                <label>Gender:</label>
+
+                <input type="radio" id="male" name="gender" value="Male" />
+                <label for="male">Male</label>
+
+                <input type="radio" id="female" name="gender" value="Female" />
+                <label for="female">Female</label>
+            </div>
+
+            <br />
+
+            <div>
+                <label for="city">City:</label>
+                <select id="city" name="city">
+                    <option value="">Select City</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Chennai">Chennai</option>
+                </select>
+            </div>
+
+            <br />
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <script>
+            const form = document.getElementById("userForm");
+
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                //console.log(form);
+
+                const formData = {
+                    name: "",
+                    email: "",
+                    age: "",
+                    dob: "",
+                    gender: "",
+                    city: "",
+                };
+
+                //console.log(form.elements);
+
+                formData.name = form.elements["name"].value;
+                formData.email = form.elements["email"].value;
+                formData.age = form.elements["age"].value;
+                formData.dob = form.elements["dob"].value;
+                formData.gender = form.elements["gender"].value;
+                formData.city = form.elements["city"].value;
+
+                //console.log(formData);
+                const postData = async function (data) {
+                    try {
+                        const res = await fetch(
+                            "https://jsonplaceholder.typicode.com/posts",
+                            {
+                                method: "POST",
+                                body: JSON.stringify(data),
+                                headers: {
+                                    "Content-Type":
+                                        "application/json; charset=UTF-8",
+                                },
+                            },
+                        );
+
+                        console.log(res);
+
+                        if (res.ok) {
+                            alert("successful");
+                            form.reset();
+                        }
+
+                        const responseData = await res.json();
+                        console.log(responseData);
+                    } catch (err) {
+                        console.log(err);
+                    }
+                };
+
+                postData(formData);
+            });
+        </script>
+    </body>
+</html>

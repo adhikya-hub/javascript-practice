@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <head>
+        <title>doc</title>
+    </head>
+    <body>
+        <ul id="names">
+            <li>John</li>
+            <li>Mary</li>
+            <li>Dora</li>
+            <!-- comment -->
+            <li>Donny</li>
+        </ul>
+        <script>
+            console.log(document.querySelector("#names li"));
+            console.log(document.querySelectorAll("#names"));
+            console.log(document.getElementsByTagName("ul"));
+            const ul = document.getElementById("names");
+
+            console.log(ul.childNodes);
+        </script>
+    </body>
+</html>

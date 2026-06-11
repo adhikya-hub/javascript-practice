@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <title>js</title>
+    </head>
+    <body>
+        <div class="hi">
+            <p>Hi</p>
+        </div>
+        <div class="hi">
+            <p>Hello</p>
+        </div>
+        <div class="hi">
+            <p>world</p>
+        </div>
+        <script>
+            console.log("JS in Body");
+            const headingCollection = document.getElementsByClassName("hi");
+            console.log(headingCollection);
+            const arr = Array.from(headingCollection);
+            console.log(arr);
+        </script>
+    </body>
+</html>
